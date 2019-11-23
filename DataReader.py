@@ -14,7 +14,7 @@ print(data2.shape)
 
 
 # define a sparse AE
-encoding_dim = (200)
+encoding_dim = 55
 input_data = Input(shape=(61440,))
 # add a Dense layer with a L1 activity regularizer
 encoded = Dense(encoding_dim, activation='relu',
@@ -34,6 +34,6 @@ decoder = Model(encoded_input, decoder_layer(encoded_input))
 autoencoder.compile(optimizer='adadelta', loss='binary_crossentropy')
 
 # train autoencoder for 5 epochs
-autoencoder.fit(data, data, epochs=5, batch_size=200, validation_data=(data2, data2))
+autoencoder.fit(data, data, epochs=5, batch_size=55, validation_data=(data2, data2))
 
 
